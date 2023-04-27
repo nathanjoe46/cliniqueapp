@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Création de l'interface utilisateur de la calculatrice
+const calculator = document.createElement('div');
+calculator.classList.add('calculator');
+document.body.appendChild(calculator);
+
+const display = document.createElement('input');
+display.setAttribute('type', 'text');
+display.classList.add('display');
+calculator.appendChild(display);
+
+const keys = document.createElement('div');
+keys.classList.add('keys');
+calculator.appendChild(keys);
+
+// Tableau des touches de la calculatrice
+const keyData = [
+  { symbol: 'C', class: 'key--operator', action: 'clear' },
+  { symbol: '⌫', class: 'key--operator', action: 'backspace' },
+  { symbol: '÷', class: 'key--operator', action: '/' },
+  { symbol: '7', class: 'key--number', action: '7' },
+  { symbol: '8', class: 'key--number', action: '8' },
+  { symbol: '9', class: 'key--number', action: '9' },
+  { symbol: 'x', class: 'key--operator', action: '*' },
+  { symbol: '4', class: 'key--number', action: '4' },
+  { symbol: '5', class: 'key--number', action: '5' },
+  { symbol: '6', class: 'key--number', action: '6' },
+  { symbol: '-', class: 'key--operator', action: '-' },
+  { symbol: '1', class: 'key--number', action: '1' },
+  { symbol: '2', class: 'key--number', action: '2' },
+  { symbol: '3', class: 'key--number', action: '3' },
+  { symbol: '+', class: 'key--operator', action: '+' },
+  { symbol: '0', class: 'key--number', action: '0' },
+  { symbol: '.', class: 'key--number', action: '.' },
+  { symbol: '=', class: 'key--operator', action: '=' }
+];
+
+// Création des touches de la calculatrice
+keyData.forEach(key => {
+  const keyElement = document.createElement('button');
+  keyElement.setAttribute('type', 'button');
+  keyElement.classList.add('key');
+  keyElement.classList.add(key.class);
+  keyElement.textContent = key.symbol;
+  keyElement.addEventListener('click', () => handleKeyPress(key.action));
+  keys.appendChild(keyElement);
+});
+
+// Fonction de gestion des pressions sur les touches
+function handleKeyPress(value) {
+  if (value === 'clear') {
+    // Effacement de l'affichage
+    display.value = '';
+  } else if (value === 'backspace') {
+    // Suppression du dernier caractère de l'affichage
+    display.value = display.value
+    </script>
+</body>
+</html>
